@@ -1,6 +1,5 @@
 flask
-scikit-learn
+tensorflow-cpu
 gunicorn
+pillow
 numpy
-joblib
-opencv-python

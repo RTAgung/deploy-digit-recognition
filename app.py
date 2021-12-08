@@ -1,29 +1,22 @@
 from flask import Flask, render_template, request, send_from_directory
-import joblib
-import cv2
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import img_to_array, load_img
+from tensorflow import expand_dims
 import numpy as np
 import os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
-# model = joblib.load('model.pkl')
-# scaler = joblib.load('std_scaler.bin')
+model = load_model('model.h5')
 
-class_dict = {0: 'Nol', 1: 'Satu', 2: 'Dua', 3: 'Tiga', 4: 'Empat', 5: 'Lima', 6: 'Enam', 7: 'Tujuh', 8: 'Delapan', 9: 'Sembilan'}
+class_dict = {0: 'Cat (Kucing)', 1: 'Dog (Anjing)'}
 
 def predict_label(img_path):
-    img = cv2.imread(img_path)
-    img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    img = cv2.resize(img, (22, 22), interpolation = cv2.INTER_AREA)
-    
-    img = img.flatten()
-    img = img.reshape(1,-1)
-    img = scaler.transform(img)
-
-    classes = model.predict(img)
-    print("Digit Hasil Prediksi :", classes[0])
-    
-    return class_dict[classes[0]]
+    loaded_img = load_img(img_path, target_size=(256, 256))
+    img_array = img_to_array(loaded_img) / 255.0
+    img_array = expand_dims(img_array, 0)
+    predicted_bit = np.round(model.predict(img_array)[0][0]).astype('int')
+    return class_dict[predicted_bit]
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

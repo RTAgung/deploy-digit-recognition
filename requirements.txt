@@ -3,3 +3,6 @@ tensorflow-cpu
 gunicorn
 pillow
 numpy
+opencv-python
+joblib
+scikit-learn

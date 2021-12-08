@@ -1,5 +1,6 @@
 flask
 tensorflow-cpu
 gunicorn
-pillow
 numpy
+joblib
+opencv-python

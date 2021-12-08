@@ -5,9 +5,10 @@ import os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
-model = joblib.load('model.h5')
+# model = joblib.load('model.pkl')
+# scaler = joblib.load('std_scaler.bin')
 
-class_dict = {0: 'Cat (Kucing)', 1: 'Dog (Anjing)'}
+class_dict = {0: 'Nol', 1: 'Satu', 2: 'Dua', 3: 'Tiga', 4: 'Empat', 5: 'Lima', 6: 'Enam', 7: 'Tujuh', 8: 'Delapan', 9: 'Sembilan'}
 
 def predict_label(img_path):
     return class_dict[0]

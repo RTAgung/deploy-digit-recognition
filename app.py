@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request, send_from_directory
-# from tensorflow.keras.models import load_model
-# from tensorflow.keras.preprocessing.image import img_to_array, load_img
-# from tensorflow import expand_dims
-# import numpy as np
+import joblib
+import cv2
 import os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
-# model = load_model('model.h5')
+model = joblib.load('model.h5')
 
 class_dict = {0: 'Cat (Kucing)', 1: 'Dog (Anjing)'}
 

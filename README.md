@@ -24,39 +24,39 @@ Jumlah sampel tiap digit :
 | 5     | 3795   |
 
 ### Preprocessing
-1. Cek null data
-2. Cek duplikasi data
-3. Resize gambar menjadi 22x22 piksel
-4. Feature scaling menggunakan Standardization
-5. Splitting data
+- Cek null data
+- Cek duplikasi data
+- Resize gambar menjadi 22x22 piksel
+- Feature scaling menggunakan Standardization
+- Splitting data
   - Data training (80%) : 33600
   - Data testing (20%) : 8400
 
 ### Modelling
-1. Menggunakan SVM kernel RBF
-2. Tuning parameter menggunakan GridSearchCV
+- Menggunakan SVM kernel RBF
+- Tuning parameter menggunakan GridSearchCV
   - C : [0.6, 1, 3, 6, 10]
   - gamma : ['scale', 'auto', 0.0009, 0.003, 0.006]
   - cv : 4
-3. Hasil training model
+- Hasil training model
   - best estimator = SVC(C=6, gamma='auto')
   - best score = 0.9650
 
 ### Evaluating
 Confusion Matrix :
-| Digit  |   | Predicted |     |     |     |     |     |     |     |     |      |
-|--------|---|-----------|-----|-----|-----|-----|-----|-----|-----|-----|------|
-|        |   | 0         | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9    |
-| Actual | 0 | 802       | 0   | 3   | 0   | 0   | 1   | 9   | 0   | 0   | 1    |
-|        | 1 | 0         | 894 | 8   | 1   | 1   | 1   | 1   | 1   | 1   | 1    |
-|        | 2 | 2         | 4   | 824 | 4   | 1   | 0   | 4   | 2   | 4   | 1    |
-|        | 3 | 0         | 0   | 11  | 895 | 0   | 10  | 0   | 7   | 9   | 5    |
-|        | 4 | 1         | 0   | 7   | 0   | 810 | 1   | 5   | 3   | 0   | 12   |
-|        | 5 | 1         | 0   | 4   | 9   | 2   | 675 | 9   | 0   | 2   | 0    |
-|        | 6 | 3         | 1   | 9   | 0   | 0   | 2   | 767 | 0   | 3   | 0    |
-|        | 7 | 0         | 1   | 9   | 3   | 5   | 2   | 0   | 865 | 0   | 8    |
-|        | 8 | 1         | 2   | 6   | 7   | 4   | 6   | 2   | 1   | 804 | 2    |
-|        | 9 | 1         | 1   | 5   | 7   | 6   | 3   | 0   | 9   | 3   | 803  |
+| Digit      |   | Predicted |     |     |     |     |     |     |     |     |      |
+|------------|---|-----------|-----|-----|-----|-----|-----|-----|-----|-----|------|
+|            |   | 0         | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9    |
+| **Actual** | 0 | 802       | 0   | 3   | 0   | 0   | 1   | 9   | 0   | 0   | 1    |
+|            | 1 | 0         | 894 | 8   | 1   | 1   | 1   | 1   | 1   | 1   | 1    |
+|            | 2 | 2         | 4   | 824 | 4   | 1   | 0   | 4   | 2   | 4   | 1    |
+|            | 3 | 0         | 0   | 11  | 895 | 0   | 10  | 0   | 7   | 9   | 5    |
+|            | 4 | 1         | 0   | 7   | 0   | 810 | 1   | 5   | 3   | 0   | 12   |
+|            | 5 | 1         | 0   | 4   | 9   | 2   | 675 | 9   | 0   | 2   | 0    |
+|            | 6 | 3         | 1   | 9   | 0   | 0   | 2   | 767 | 0   | 3   | 0    |
+|            | 7 | 0         | 1   | 9   | 3   | 5   | 2   | 0   | 865 | 0   | 8    |
+|            | 8 | 1         | 2   | 6   | 7   | 4   | 6   | 2   | 1   | 804 | 2    |
+|            | 9 | 1         | 1   | 5   | 7   | 6   | 3   | 0   | 9   | 3   | 803  |
 
 Classification Report :
 | digit        | precision | recall | f1-score | support |
@@ -71,7 +71,6 @@ Classification Report :
 | 7            | 0.97      | 0.97   | 0.97     | 893     |
 | 8            | 0.97      | 0.96   | 0.97     | 835     |
 | 9            | 0.96      | 0.96   | 0.96     | 838     |
-|              |           |        |          |         |
 | accuracy     |           |        | 0.97     | 8400    |
 | macro avg    | 0.97      | 0.97   | 0.97     | 8400    |
 | weighted avg | 0.97      | 0.97   | 0.97     | 8400    |

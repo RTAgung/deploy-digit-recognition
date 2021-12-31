@@ -1,4 +1,4 @@
-# Handwrotten Digit Recognition [_open link_](https://deploy-digit-recognition.herokuapp.com)
+# Handwritten Digit Recognition [_open link_](https://deploy-digit-recognition.herokuapp.com)
 Tugas proyek akhir dari mata kuliah Machine Learning
 
 ### Branch
